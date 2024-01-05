@@ -67,7 +67,7 @@ class hueAPI():
             print(e)
 
 
-    def changeColor(self):
+    def changeColor(self, x, y):
         # if light not on turn it on 
         if not self.lightStatus():
             self.turnON()
@@ -77,8 +77,8 @@ class hueAPI():
         payload = json.dumps({
             "color": {
                 "xy": {
-                    "x": 0.15,
-                    "y": .20
+                    "x": x,
+                    "y": y
                 }
             }
 
