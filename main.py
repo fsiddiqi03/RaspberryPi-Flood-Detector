@@ -1,5 +1,10 @@
+from hue_api import hueAPI
 import RPi.GPIO as GPIO
-# import time
+import time
+
+
+hue = hueAPI()
+
 
 # GPIO pin number where the sensor is connected
 SENSOR_PIN = 18 
@@ -12,7 +17,10 @@ try:
         num = GPIO.input(SENSOR_PIN)
         if num == 1:
             print('water detected')
+            # use hue api to change light color to blue
+            hue.changeColor()
         else:
             print('no water')
 except KeyboardInterrupt:
     GPIO.cleanup()
+
