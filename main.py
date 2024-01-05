@@ -18,9 +18,10 @@ try:
         if num == 1:
             print('water detected')
             # use hue api to change light color to blue
-            hue.changeColor()
+            hue.changeColor(0.15, .20)
         else:
             print('no water')
+            hue.changeColor(0.39, 0.33)
 except KeyboardInterrupt:
     GPIO.cleanup()
 
