@@ -11,8 +11,7 @@ The flood detector continuously monitors the water level through a sensor connec
 ### Hardware Requirements
 
 - Raspberry Pi (any model that supports GPIO pins)
-- Water level sensor compatible with Raspberry Pi
-- Philips Hue lights and bridge
+- Water level sensor compatible with Raspberry Pi: [The one I used](https://www.amazon.com/CQRobot-Consumption-Resistance-Temperature-Properties/dp/B07ZMGW3QJ/ref=sr_1_4?crid=18SF5O5IFZQP4&dib=eyJ2IjoiMSJ9.yIT416c4kLXdQLTHp03Eu1svIEX4cEnA_v11ELozZPsXKbVxdMZMH2G_C8pdT8ndZd0pdPQBbeCVQ9r4M_KVnFZwg_kCM1-q5t4VxzG5bz8MB1WOgd_aatoU9iNT_euXc_lznAhbYb7laI8QH1fqAmK7ZlYRqGWSibg5xGaJALvX5J9qOL1cVoTKR-7JRRfnMiMuyunQFWgTFYo3I0PzeXiItiel6X07E050fBt2yqk.Cl8-H2Pf9xlEBAHeHTiU_J4ZUmI5_rEESKh14xCQR_s&dib_tag=se&keywords=raspberry+pi+water+sensor&qid=1713562844&sprefix=raspberry+pi+water+sensor%2Caps%2C107&sr=8-4)
 - Internet connection
 
 ### Software Requirements
