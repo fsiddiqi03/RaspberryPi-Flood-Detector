@@ -1,4 +1,5 @@
 from hue_api import hueAPI
+from email_sender import ses
 import RPi.GPIO as GPIO
 import time
 
@@ -6,7 +7,7 @@ import time
 def main(): 
     # create the hueAPI object 
     hue = hueAPI()
-
+    email = ses()
 
     # GPIO pin number where the sensor is connected
     SENSOR_PIN = 18 
@@ -27,6 +28,9 @@ def main():
                     # use hue api to change light color to blue
                     hue.changeColor(0.15, .20)
                     light_changed = True
+                    # send email
+                    ses.send()
+
             # checks if the GPIO sends back 0, meaning no water 
             else:
                 print('no water')
