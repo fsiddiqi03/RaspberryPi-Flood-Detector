@@ -1,6 +1,8 @@
 import boto3
 from config import region_name, RECIPIANT, SENDER
 from botocore.exceptions import ClientError
+from datetime import datetime
+
 
 
 class ses():
@@ -28,7 +30,7 @@ class ses():
                     },
                     'Body': {
                         'Text': {
-                            'Data': 'flood detected at', # create getTime function 
+                            'Data': f'flood detected at {datetime.now()}', # create getTime function 
                         },
                     },
                 }
