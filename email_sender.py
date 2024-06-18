@@ -30,7 +30,7 @@ class ses():
                     },
                     'Body': {
                         'Text': {
-                            'Data': f'flood detected at {datetime.now()}', # create getTime function 
+                            'Data': f'flood detected at {datetime.now()}', 
                         },
                     },
                 }
