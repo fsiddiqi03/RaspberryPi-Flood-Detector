@@ -1,4 +1,3 @@
-from hue_api import hueAPI
 from email_sender import ses
 import RPi.GPIO as GPIO
 import time
