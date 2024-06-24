@@ -5,8 +5,7 @@ import time
 
 
 def main(): 
-    # create the hueAPI object 
-    hue = hueAPI()
+    
     # create the ses object
     email = ses()
 
@@ -17,7 +16,7 @@ def main():
     GPIO.setup(SENSOR_PIN, GPIO.IN)  # Set the sensor pin as input
 
 
-    light_changed = False
+    email_sent = False
 
     try:
         while True:
@@ -25,20 +24,19 @@ def main():
             # 1 means water is deteced 
             if num == 1:
                 print('water detected')
-                if not light_changed: # only send email + change light once. 
-                    # use hue api to change light color to blue
-                    hue.changeColor(0.15, .20)
-                    light_changed = True
+                if not email_sent: # only send email once. 
                     # send email
-                    ses.send()
+                    email.send()
+                    email_sent = True
+                    
 
             # checks if the GPIO sends back 0, meaning no water 
             else:
                 print('no water')
-                # if the light was changed, meaning its blue, return it back to its normal state 
-                if light_changed:
-                    hue.changeColor(0.39, 0.33)
-                    light_changed = False
+                # if email was already sent, send another notifying user water is no longer detected. 
+                if email_sent:
+                    email.send()
+                    email_sent = False
             time.sleep(0.25)
     except KeyboardInterrupt:
         GPIO.cleanup()
