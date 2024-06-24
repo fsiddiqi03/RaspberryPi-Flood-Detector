@@ -7,6 +7,7 @@ import time
 def main(): 
     # create the hueAPI object 
     hue = hueAPI()
+    # create the ses object
     email = ses()
 
     # GPIO pin number where the sensor is connected
@@ -24,7 +25,7 @@ def main():
             # 1 means water is deteced 
             if num == 1:
                 print('water detected')
-                if not light_changed:
+                if not light_changed: # only send email + change light once. 
                     # use hue api to change light color to blue
                     hue.changeColor(0.15, .20)
                     light_changed = True
