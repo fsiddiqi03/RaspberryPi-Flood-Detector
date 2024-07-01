@@ -12,8 +12,11 @@ class ses():
         self.recipiant = RECIPIANT
 
 
-    def send(self):
+    def send(self, n):
         ses_client = boto3.client('ses', region_name= self.region)  
+
+        # 0: flood detected, 1: flood no longer detected 
+        message = [f'flood detected at {datetime.now()}', f'flood no longer detected at {datetime.now()}']
 
         try:
             # Provide the contents of the email
@@ -30,7 +33,7 @@ class ses():
                     },
                     'Body': {
                         'Text': {
-                            'Data': f'flood detected at {datetime.now()}', 
+                            'Data': message[n], 
                         },
                     },
                 }
