@@ -25,7 +25,7 @@ def main():
                 print('water detected')
                 if not email_sent: # only send email once. 
                     # send email
-                    email.send()
+                    email.send(0)
                     email_sent = True
                     
 
@@ -34,7 +34,7 @@ def main():
                 print('no water')
                 # if email was already sent, send another notifying user water is no longer detected. 
                 if email_sent:
-                    email.send()
+                    email.send(1)
                     email_sent = False
             time.sleep(0.25)
     except KeyboardInterrupt:
